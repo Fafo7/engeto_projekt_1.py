@@ -4,6 +4,8 @@ author: Filip Trepáň
 email: filip.trepan@gmail.com
 """
 oddelovac = "=" * 30
+import sys
+import string
 
 TEXTS = [
     '''Situated about 10 miles west of Kemmerer,
@@ -50,7 +52,7 @@ if meno in uzivatelia and uzivatelia[meno] == heslo:
     print(f"Welcome to the app, {meno}!")
 else:
     print("unregistered user, terminating the program...")
-    exit()
+    sys.exit()
 
 # analýza textov
 print(f"We have {len(TEXTS)} texts to be analyzed.")
@@ -93,7 +95,7 @@ print(oddelovac)
 # počítanie výskytov slov
 sucet = {}
 for slovo in slova:
-    dlzka = len(slovo.strip(".,!?"))
+    dlzka = len(slovo.strip(string.punctuation))
     if dlzka not in sucet:
         sucet[dlzka] = 0
     sucet[dlzka] += 1
